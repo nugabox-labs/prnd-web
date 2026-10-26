@@ -4,12 +4,23 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 
 | 경로 | URL |
 | --- | --- |
-| `index.html` | `/` — 소개, 요금, 문의(App Store 지원 URL 겸용 `/#support`) |
+| `index.html` | `/` — 소개, 기능, 화면, 요금, 출시 안내 |
 | `privacy/index.html` | `/privacy/` — 개인정보처리방침 |
 | `terms/location/index.html` | `/terms/location/` — 위치기반서비스 이용약관 |
 | `assets/` | 공용 CSS, Michroma 폰트(OFL), 브랜드 이미지, 앱 화면 캡처 |
 
 빌드 단계는 없다. 로컬 확인: `python3 -m http.server 8080` 후 http://localhost:8080
+
+## 아이콘
+`assets/img/favicon.svg`가 원본이다 — 워드마크(Michroma)의 P·R 글리프를 같은 색 외곽선으로 굵게, 검정 둥근 사각형 위에.
+
+| 파일 | 용도 |
+| --- | --- |
+| `assets/img/prnd-icon-1024.jpg`, `prnd-icon-512.jpg` | 다른 서비스 등록용(정사각, 모서리는 각 서비스가 둥글게 처리) · og:image |
+| `assets/img/prnd-icon-rounded-512.png` | 모서리까지 둥근 투명 배경 PNG |
+| `assets/img/favicon.png`, `/favicon.ico`, `apple-touch-icon.png` | 브라우저·홈 화면 |
+
+사이트 문구에는 특정 제조사·지도 서비스 이름을 쓰지 않는다(추상적으로 "차", "길안내 앱").
 
 ## 출처
 - 문구·기능·등급: `prnd-app/docs/PRND_SPEC.md`
@@ -17,7 +28,7 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 - 브랜드(워드마크·앱 아이콘·Michroma·히어로): `prnd-app/assets/`
 - 법적 문서 틀: `todaytome/app/public/privacy.html`
 
-앱 기능이 바뀌면(특히 외부로 나가는 정보 — 카카오내비 SDK 도입 등) 개인정보처리방침 4항과 버전·날짜를 함께 고친다.
+앱 기능이 바뀌면(특히 외부로 나가는 정보 — 카메라 안내 SDK 도입 등) 개인정보처리방침 4항과 버전·날짜를 함께 고친다.
 
 ## 배포
 `main`에 푸시하면 `.github/workflows/deploy.yml`이 self-hosted 러너(`nugacloud`)에서

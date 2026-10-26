@@ -109,8 +109,6 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
   width: 100%; height: 100%; object-fit: cover; object-position: top;
   border-radius: 40px; background: var(--bg);
 }
-.phone.sm { width: 240px; border-radius: 40px; padding: 7px; }
-.phone.sm img { border-radius: 33px; }
 
 /* ── 기능 ── */
 .features-grid {
@@ -132,36 +130,24 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
   color: var(--cream); border: 1px solid rgba(232, 223, 204, 0.35);
 }
 
-/* ── 화면 ── */
-.screens {
-  display: flex; gap: 28px; margin-top: 56px; padding-bottom: 8px;
-  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+/* ── 화면: 세로 폰 셋 뒤에, 가로 계기판을 오른쪽 아래에 겹친다. 치수는 무대 너비(cqw) 기준 ── */
+.showcase { container-type: inline-size; position: relative; max-width: 1040px; margin: 64px auto 0; }
+.showcase-row { display: flex; justify-content: space-between; margin-bottom: 15cqw; }
+.showcase .phone { width: 29cqw; padding: 1.1cqw; border-radius: 6cqw; }
+.showcase .phone img { border-radius: 5cqw; }
+.showcase .phone:nth-child(2) { transform: translateY(-3cqw); }
+.showcase-wide {
+  position: absolute; right: -2cqw; bottom: 0; width: 64cqw;
+  border-radius: 4cqw; border: 1px solid #2C2E33;
+  box-shadow: 0 -10px 60px rgba(0, 0, 0, 0.75), 0 30px 80px rgba(0, 0, 0, 0.6);
 }
-.screens::-webkit-scrollbar { display: none; }
-.screens figure { margin: 0; flex: none; scroll-snap-align: start; }
-.screens figcaption { margin-top: 16px; font-size: 14px; color: var(--text-2); text-align: center; }
-.wide-shots { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; margin-top: 28px; align-items: start; }
-.wide-shots figure { margin: 0; }
-.wide-shots img { width: 100%; border-radius: 24px; border: 1px solid var(--divider); }
-.wide-shots figcaption { margin-top: 14px; font-size: 14px; color: var(--text-2); }
 
-/* ── 시작하기 ── */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 56px 0 0; padding: 0; list-style: none; counter-reset: step; }
-.steps li { counter-increment: step; padding: 28px; border-radius: 20px; background: var(--surface); }
-.steps li::before {
-  content: counter(step, decimal-leading-zero); display: block; margin-bottom: 18px;
-  font-family: var(--font-display); font-size: 13px; color: var(--cream); letter-spacing: 0.1em;
-}
-.steps h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
-.steps p { margin: 0; color: var(--text-2); font-size: 15px; }
-
-/* ── 개인정보 요약 ── */
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
-.pillar { padding: 28px; border-radius: 20px; border: 1px solid var(--divider); }
-.pillar strong { display: block; margin-bottom: 8px; font-size: 20px; letter-spacing: -0.02em; }
-.pillar span { color: var(--text-2); font-size: 15px; }
-.text-link { color: var(--cream); text-decoration: none; font-weight: 600; }
-.text-link:hover { text-decoration: underline; }
+/* ── 마무리 CTA ── */
+.outro { text-align: center; padding: 128px 0 136px; }
+.outro .frame { display: flex; flex-direction: column; align-items: center; }
+.outro img { width: 160px; margin-bottom: 28px; }
+.outro .section-title { margin-bottom: 32px; }
+.outro .note { margin: 18px 0 0; font-size: 13px; color: var(--text-3); }
 
 /* ── 요금 ── */
 .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
@@ -181,16 +167,6 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
   border-left: 1.5px solid var(--cream); border-bottom: 1.5px solid var(--cream); transform: rotate(-45deg);
 }
 .fine { margin-top: 18px; font-size: 13px; color: var(--text-3); }
-
-/* ── 문의 ── */
-.contact-card {
-  margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
-  padding: 28px 32px; border-radius: 20px; background: var(--surface);
-}
-.contact-card dl { margin: 0; display: grid; grid-template-columns: 72px 1fr; row-gap: 6px; font-size: 15px; }
-.contact-card dt { color: var(--text-2); }
-.contact-card dd { margin: 0; }
-.contact-card a { color: var(--cream); text-decoration: none; }
 
 /* ── 푸터 ── */
 footer.site { padding: 40px 0 56px; border-top: 1px solid var(--divider); color: var(--text-3); font-size: 13px; }
@@ -250,7 +226,6 @@ table.tbl tbody tr:last-child td { border-bottom: 0; }
   .hero .frame { grid-template-columns: 1fr; text-align: left; }
   .hero-visual { margin-top: 24px; }
   .features-grid { grid-template-columns: 1fr 1fr; }
-  .wide-shots { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
   .frame { padding: 0 22px; }
@@ -259,9 +234,9 @@ table.tbl tbody tr:last-child td { border-bottom: 0; }
   section { padding: 80px 0; }
   .hero { padding: 56px 0 80px; }
   .phone { width: 260px; }
-  .phone.sm { width: 210px; }
-  .features-grid, .steps, .pillars, .plans { grid-template-columns: 1fr; }
+  .features-grid, .plans { grid-template-columns: 1fr; }
   .toc ol { grid-template-columns: 1fr; }
-  .contact-box dl, .contact-card dl { grid-template-columns: 1fr; row-gap: 2px; }
-  .contact-box dt, .contact-card dt { margin-top: 6px; }
+  .contact-box dl { grid-template-columns: 1fr; row-gap: 2px; }
+  .contact-box dt { margin-top: 6px; }
 }
+#screens { overflow-x: clip; }

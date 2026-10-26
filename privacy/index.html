@@ -8,7 +8,8 @@
 <link rel="canonical" href="https://prnd.nugabox.com/privacy/" />
 <meta name="theme-color" content="#0A0B0D" />
 <meta name="color-scheme" content="dark" />
-<link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
@@ -22,7 +23,7 @@
     <nav aria-label="주요 메뉴">
       <a href="/">홈</a>
       <a href="/privacy/" aria-current="page">개인정보</a>
-      <a href="/#support">문의</a>
+      <a href="mailto:ngjang.dev@gmail.com">문의</a>
     </nav>
   </div>
 </header>
@@ -67,7 +68,7 @@
 
       <section class="policy" id="s1">
         <h2><span class="num">01</span>처리하는 정보 항목</h2>
-        <p>개발자는 이용자로부터 이름, 이메일, 전화번호, Tesla 계정 정보를 받지 않습니다. 서비스는 기능을 위해 아래 정보를 <strong>기기 안에서</strong> 처리합니다.</p>
+        <p>개발자는 이용자로부터 이름, 이메일, 전화번호, 차량 제조사 계정 정보를 받지 않습니다. 서비스는 기능을 위해 아래 정보를 <strong>기기 안에서</strong> 처리합니다.</p>
         <div class="tbl-wrap">
           <table class="tbl">
             <thead><tr><th>구분</th><th>항목</th><th>언제</th></tr></thead>
@@ -90,7 +91,7 @@
         <h2><span class="num">02</span>이용 목적</h2>
         <ol>
           <li>주행 시작·종료 감지와 주행 화면(속도·출력·배터리·재생 중인 곡) 표시</li>
-          <li>차에서 정한 목적지를 알아채 네이버지도 안내로 이어 주기</li>
+          <li>차에서 정한 목적지를 알아채 길안내 앱으로 이어 주기</li>
           <li>단속카메라·구간단속·과속방지턱 안내</li>
           <li>장소 검색, 즐겨찾기·최근 목적지 관리</li>
           <li>여정 기록과 월별 요약 제공</li>
@@ -128,16 +129,14 @@
             <tbody>
               <tr><td>Apple (지도 검색)</td><td>검색어, 검색 기준 위치 범위</td><td>목적지 탭에서 장소를 검색할 때</td></tr>
               <tr><td>Apple (주소 변환)</td><td>주행이 끝난 지점의 좌표</td><td>여정에 도착 동네 이름을 붙일 때</td></tr>
-              <tr><td>네이버지도 앱</td><td>목적지 이름, 좌표</td><td>"네이버지도로 안내"를 누를 때</td></tr>
-              <tr><td>이용자가 고른 앱 (예: Tesla 앱)</td><td>장소 이름, 주소, Apple 지도 링크</td><td>"차로 보내기"에서 iOS 공유 시트로 앱을 고를 때</td></tr>
+              <tr><td>이용자가 쓰는 길안내 앱</td><td>목적지 이름, 좌표</td><td>목적지 안내를 시작할 때</td></tr>
+              <tr><td>이용자가 고른 앱</td><td>장소 이름, 주소, Apple 지도 링크</td><td>"차로 보내기"에서 iOS 공유 시트로 앱을 고를 때</td></tr>
               <tr><td>Apple (App Store)</td><td>구독 구매·복원 요청</td><td>PRO를 구독하거나 구매를 복원할 때</td></tr>
             </tbody>
           </table>
         </div>
-        <p>각 곳에서의 처리는 해당 사업자의 개인정보처리방침을 따릅니다 —
-          <a href="https://www.apple.com/kr/legal/privacy/" target="_blank" rel="noopener">Apple</a>,
-          <a href="https://policy.naver.com/policy/privacy.html" target="_blank" rel="noopener">네이버</a>.</p>
-        <p class="small">단속카메라 안내에 외부 SDK(예: 카카오내비 SDK)를 적용하게 되면, 그 SDK로 전달되는 항목을 이 표에 추가하고 시행 전에 앱 안에서 알립니다.</p>
+        <p>각 곳에서의 처리는 해당 사업자의 개인정보처리방침을 따릅니다(예: <a href="https://www.apple.com/kr/legal/privacy/" target="_blank" rel="noopener">Apple</a>).</p>
+        <p class="small">단속카메라 안내에 외부 SDK를 적용하게 되면, 그 SDK로 전달되는 항목을 이 표에 추가하고 시행 전에 앱 안에서 알립니다.</p>
       </section>
 
       <section class="policy" id="s5">
@@ -172,7 +171,7 @@
         <h2><span class="num">08</span>안전성 확보 조치</h2>
         <ul>
           <li>차량 키의 비밀키는 iPhone 보안 칩(Secure Enclave)에서 만들어지며 기기 밖으로 꺼낼 수 없습니다.</li>
-          <li>차와 주고받는 블루투스 메시지는 Tesla 차량 명령 프로토콜에 따라 세션별로 암호화·서명됩니다.</li>
+          <li>차와 주고받는 블루투스 메시지는 차량의 통신 규격에 따라 세션별로 암호화·서명됩니다.</li>
           <li>개발자 서버가 없어 서버 유출 위험이 없고, 데이터는 iOS의 앱 샌드박스와 데이터 보호 기능으로 보호됩니다.</li>
         </ul>
       </section>
@@ -220,8 +219,8 @@
 <footer class="site">
   <div class="frame">
     <div>
-      <p>PRND는 Tesla, Inc.와 무관한 개인 개발 앱입니다. Tesla는 Tesla, Inc.의 상표입니다.</p>
-      <p style="margin-top: 6px">© NUGABOX. All rights reserved.</p>
+      <p>PRND는 특정 자동차 제조사와 제휴하지 않은 개인 개발 앱입니다.</p>
+      <p style="margin-top: 6px">문의 <a href="mailto:ngjang.dev@gmail.com">ngjang.dev@gmail.com</a> · © NUGABOX. All rights reserved.</p>
     </div>
     <nav aria-label="법적 고지">
       <a href="/privacy/">개인정보처리방침</a>
