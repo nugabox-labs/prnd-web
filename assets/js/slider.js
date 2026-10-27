@@ -24,10 +24,24 @@
   let setWidth = 0;
   const measure = () => { setWidth = track.children[originals.length].offsetLeft - track.children[0].offsetLeft; };
   measure();
-  addEventListener('resize', measure);
-  addEventListener('load', measure, { once: true });
 
-  let offset = 0;
+  // 처음에는 주행(첫 장)이 보이는 칸의 왼쪽에 오도록 둔다 — 그 앞에는 마지막 장(설정)이 걸쳐 보인다.
+  const startOffset = () => {
+    const step = track.children[1].offsetLeft - track.children[0].offsetLeft;
+    const gap = step - track.children[0].offsetWidth;
+    const per = Number(getComputedStyle(track).getPropertyValue('--per')) || 1;
+    const side = (slider.clientWidth - (per * step - gap)) / 2;
+    return setWidth - side;
+  };
+  let offset = startOffset();
+  let started = false;
+  track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+  const reset = () => {
+    measure();
+    if (!started) { offset = startOffset(); track.style.transform = `translate3d(${-offset}px, 0, 0)`; }
+  };
+  addEventListener('resize', reset);
+  addEventListener('load', reset, { once: true });
   let speed = 0;
   let hovering = false;
   let visible = false;
@@ -43,7 +57,7 @@
     const dt = Math.min((now - last) / 1000, 0.1);
     last = now;
     if (!drag) {
-      const target = hovering || reduceMotion || document.hidden ? 0 : SPEED;
+      const target = !started || hovering || reduceMotion || document.hidden ? 0 : SPEED;
       speed += (target - speed) * Math.min(1, EASE * dt);
       offset += speed * dt;
     }
@@ -53,11 +67,13 @@
   };
   const run = () => { last = performance.now(); requestAnimationFrame(frame); };
 
+  // 화면에 반쯤 들어온 뒤 잠깐 멈춰 있다가 출발한다 — 처음 보는 순간 주행 화면부터 보이게.
   new IntersectionObserver(([entry]) => {
     const was = visible;
     visible = entry.isIntersecting;
     if (visible && !was) run();
-  }).observe(slider);
+    if (!started && entry.intersectionRatio >= 0.5) setTimeout(() => { started = true; }, 1200);
+  }, { threshold: [0, 0.5] }).observe(slider);
 
   slider.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hovering = true; });
   slider.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hovering = false; });

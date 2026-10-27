@@ -1,5 +1,5 @@
 // 배경: 밤 도로를 원근으로 그려 천천히 달리는 느낌을 준다(동영상 대신 캔버스 — 내려받을 파일 없음).
-// 차선 점선이 다가오고, 앞차 미등과 가로등이 지나간다. 스크롤하면 잠깐 빨라진다.
+// 차선 점선이 다가오고 가로등이 지나간다. 스크롤하면 잠깐 빨라진다.
 // 탭이 숨으면 멈추고, 움직임 줄이기 설정이면 한 장면만 그린다.
 (() => {
   const canvas = document.createElement('canvas');
@@ -35,8 +35,6 @@
   const sy = (y, z) => horizon + ((CAM_H - y) * f) / z;
   const fade = (z) => Math.max(0, Math.min(1, (FAR - z) / (FAR * 0.6))) * Math.max(0, Math.min(1, (z - 4) / 14));
 
-  // 앞차: 차로마다 한두 대, 우리보다 조금 느리거나 빠르게
-  const cars = [-LANE, 0, LANE, -LANE, LANE].map((x, i) => ({ x, z: 40 + i * 37, v: BASE_SPEED * (0.86 + (i % 3) * 0.07) }));
 
   let travel = 0;
   let speed = BASE_SPEED;
@@ -110,15 +108,6 @@
       for (const x of [-EDGE - 2.5, EDGE + 2.5]) glow(sx(x, z), sy(7, z), r * 6, '232, 223, 204', a * 0.5);
     }
 
-    // 앞차 미등
-    for (const car of cars) {
-      const a = fade(car.z);
-      if (a <= 0) continue;
-      const y = sy(0.9, car.z);
-      const r = Math.max(1.5, 90 / car.z);
-      for (const dx of [-0.75, 0.75]) glow(sx(car.x + dx, car.z), y, r * 5, '200, 40, 45', 0.75 * a);
-    }
-
     // 가장자리 어둡게 — 글자가 읽히도록
     const vig = ctx.createRadialGradient(cx, h * 0.45, Math.min(w, h) * 0.2, cx, h * 0.5, Math.max(w, h) * 0.8);
     vig.addColorStop(0, 'rgba(10, 11, 13, 0)');
@@ -131,11 +120,6 @@
     boost *= Math.pow(0.25, dt);
     speed += (BASE_SPEED + boost - speed) * Math.min(1, 3 * dt);
     travel += speed * dt;
-    for (const car of cars) {
-      car.z += (car.v - speed) * dt;
-      if (car.z < 8) car.z += FAR - 20;
-      if (car.z > FAR) car.z -= FAR - 20;
-    }
   };
 
   if (reduceMotion) { draw(); addEventListener('resize', draw); return; }
