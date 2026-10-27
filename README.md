@@ -11,6 +11,11 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 
 빌드 단계는 없다. 로컬 확인: `python3 -m http.server 8080` 후 http://localhost:8080
 
+## 헤더 · 워드마크
+- 헤더는 link.nugabox.com(`linkbox/components/site/SiteHeader.tsx`)과 같은 방식: 맨 위에서는 전체 너비·배경 없음, 스크롤하면 가운데 알약(반투명·블러)으로 줄어든다. `assets/js/site.js`가 맨 위 감시자로 `.is-shrunk`만 붙인다. 모바일(680px 이하)은 오른쪽 버튼을 숨긴다.
+- 헤더·마무리 로고는 `assets/img/PRND-wordmark-wide.svg` — 앱 워드마크 글리프를 글자 사이 +46(글자 높이 90 기준) 넓히고 여백 없이 잘라 같은 높이에서 더 크게 보인다. 원본은 `PRND-wordmark-transparent.svg`.
+- CSS·JS 링크에는 `?v=` 버전을 붙인다. 고치면 네 페이지의 버전을 함께 올린다.
+
 ## 아이콘
 `assets/img/favicon.svg`가 원본이다 — 워드마크(Michroma)의 P·R 글리프를 같은 색 외곽선으로 굵게, 검정 둥근 사각형 위에.
 

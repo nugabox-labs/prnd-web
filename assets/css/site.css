@@ -28,7 +28,7 @@ html, body {
   margin: 0; padding: 0; background: var(--bg); color: var(--text);
   font-family: var(--font); -webkit-font-smoothing: antialiased;
 }
-body { min-height: 100vh; line-height: 1.6; }
+body { min-height: 100vh; line-height: 1.6; word-break: keep-all; overflow-wrap: break-word; }
 html { background: radial-gradient(120% 80% at 50% 0%, #17191D 0%, var(--bg) 60%) fixed, var(--bg); }
 body { background: transparent; }
 
@@ -41,20 +41,49 @@ a { color: inherit; }
 
 .frame { max-width: var(--frame); margin: 0 auto; padding: 0 40px; }
 
-/* ── 상단 내비 ── */
-.top {
+/* ── 상단 헤더(link.nugabox.com과 같은 방식) ──
+   맨 위에서는 화면 전체 너비에 배경 없이 펴져 있고, 내려가면 가운데 알약으로 줄어든다.
+   상태는 assets/js/site.js가 .is-shrunk 클래스 하나로만 알린다. */
+.header-sentinel { height: 1px; margin-bottom: -1px; }
+.site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(10, 11, 13, 0.72);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border-bottom: 1px solid var(--divider);
+  width: 100%; max-width: 100%; margin: 0 auto; padding: 0;
+  transition: max-width 0.42s cubic-bezier(0.22, 0.61, 0.36, 1), padding 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.top .frame { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.brand { display: flex; align-items: center; text-decoration: none; }
-.brand img { width: 86px; height: auto; }
-.top nav { display: flex; gap: 28px; align-items: center; }
-.top nav a { color: var(--text-2); text-decoration: none; font-size: 14px; font-weight: 500; }
-.top nav a:hover, .top nav a[aria-current="page"] { color: var(--text); }
+.header-bar {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+  padding: 20px 32px; border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0);
+  /* 색은 두고 투명도만 0 → 전환 중간 프레임이 깨끗하다 */
+  background-color: rgba(22, 23, 26, 0);
+  -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px);
+  transition: padding 0.42s cubic-bezier(0.22, 0.61, 0.36, 1), border-radius 0.42s cubic-bezier(0.22, 0.61, 0.36, 1),
+              background-color 0.42s ease, border-color 0.42s ease, backdrop-filter 0.42s ease, box-shadow 0.42s ease;
+}
+.site-header.is-shrunk { max-width: 1184px; padding: 12px; }
+.site-header.is-shrunk .header-bar {
+  padding: 10px 12px 10px 24px; border-radius: 999px;
+  border-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(22, 23, 26, 0.72);
+  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+.header-logo { justify-self: start; display: inline-flex; align-items: center; text-decoration: none; }
+.header-logo img { height: 20px; width: auto; transition: height 0.42s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.site-header.is-shrunk .header-logo img { height: 17px; }
+.header-nav { display: flex; gap: 32px; }
+.header-nav a, .header-link {
+  color: var(--text-2); text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap;
+  transition: color 0.2s;
+}
+.header-nav a:hover, .header-link:hover { color: var(--text); }
+.header-actions { justify-self: end; display: flex; align-items: center; gap: 16px; }
+.header-cta {
+  display: inline-flex; align-items: center; height: 38px; padding: 0 16px; border-radius: 999px;
+  background: var(--cream); color: var(--bg); font-size: 14px; font-weight: 700; white-space: nowrap; cursor: default;
+}
+section[id] { scroll-margin-top: 84px; }
+@media (prefers-reduced-motion: reduce) { .site-header, .header-bar, .header-logo img { transition: none; } }
 
 /* ── 버튼 ── */
 .btn {
@@ -170,7 +199,7 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
 /* ── 마무리 CTA ── */
 .outro { text-align: center; padding: 128px 0 136px; }
 .outro .frame { display: flex; flex-direction: column; align-items: center; }
-.outro img { width: 160px; margin-bottom: 28px; }
+.outro img { width: auto; height: 30px; margin-bottom: 32px; }
 .outro .section-title { margin-bottom: 32px; }
 .outro .note { margin: 18px 0 0; font-size: 13px; color: var(--text-3); }
 
@@ -207,7 +236,7 @@ footer.site p { margin: 0; }
 .doc-head { margin-bottom: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--divider); }
 .doc-head .eyebrow { margin-bottom: 14px; }
 .doc-head h1 { margin: 0 0 14px; font-size: clamp(30px, 4vw, 40px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; }
-.doc-head .meta { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: var(--text-3); }
+.doc-head .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--text-3); }
 .doc-head .meta b { color: var(--text-2); font-weight: 500; }
 .doc .intro {
   margin: 0 0 36px; padding: 20px 22px; border-radius: 14px; background: var(--surface);
@@ -255,8 +284,18 @@ table.tbl tbody tr:last-child td { border-bottom: 0; }
 }
 @media (max-width: 680px) {
   .frame { padding: 0 22px; }
-  .top nav { gap: 18px; }
-  .top nav a.hide-sm { display: none; }
+  .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.12em; }
+  .hero p.lead { font-size: 16px; }
+  footer.site .frame > p span { display: block; }
+  footer.site .frame > p .sep { display: none; }
+  .header-bar { grid-template-columns: auto 1fr; padding: 16px 20px; gap: 12px; }
+  .header-nav { justify-self: end; gap: 20px; }
+  .header-nav a { font-size: 14px; }
+  .header-actions { display: none; }
+  .header-logo img { height: 16px; }
+  .site-header.is-shrunk { padding: 10px; }
+  .site-header.is-shrunk .header-bar { padding: 10px 18px; }
+  .site-header.is-shrunk .header-logo img { height: 14px; }
   section { padding: 80px 0; }
   .hero { padding: 56px 0 80px; }
   .phone { width: 260px; }
