@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>PRND — 내 차와 목적지를 잇는 드라이브 허브</title>
-<meta name="description" content="내 차를 연동하고, 차에서 정한 목적지를 iPhone의 길안내로 바로 이어 주는 앱. 단속카메라 안내와 주행 기록까지, 로그인 없이 기기 안에서만." />
+<title>PRND — 주행을 편하게, 목적지 설정도 더 편하게</title>
+<meta name="description" content="내 차를 연동하면 주행에 필요한 도구를 채워드립니다. 번거롭던 목적지 설정도 내가 쓰던 내비게이션으로 더 쉽게." />
 <link rel="canonical" href="https://prnd.nugabox.com/" />
 <meta name="theme-color" content="#0A0B0D" />
 <meta name="color-scheme" content="dark" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PRND" />
-<meta property="og:title" content="PRND — 목적지를 한 번에" />
-<meta property="og:description" content="내 차를 연동하고, 목적지를 끊김 없이 이어 줘요." />
+<meta property="og:title" content="PRND — 주행을 편하게, 목적지 설정도 더 편하게" />
+<meta property="og:description" content="내 차를 연동하면 주행에 필요한 도구를 채워드립니다." />
 <meta property="og:url" content="https://prnd.nugabox.com/" />
 <meta property="og:image" content="https://prnd.nugabox.com/assets/img/prnd-icon-512.jpg" />
 <meta property="og:locale" content="ko_KR" />
@@ -24,6 +24,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
 <link rel="stylesheet" href="/assets/css/site.css" />
+<script src="/assets/js/slider.js" defer></script>
 </head>
 <body>
 
@@ -32,6 +33,7 @@
     <a class="brand" href="/" aria-label="PRND 홈"><img src="/assets/img/PRND-wordmark-transparent.svg" alt="PRND" width="86" height="28" /></a>
     <nav aria-label="주요 메뉴">
       <a class="hide-sm" href="#features">기능</a>
+      <a class="hide-sm" href="#screens">화면</a>
       <a class="hide-sm" href="#pricing">요금</a>
       <a href="/privacy/">개인정보</a>
     </nav>
@@ -44,19 +46,17 @@
     <div class="frame">
       <div>
         <p class="eyebrow">Park · Reverse · Neutral · Drive</p>
-        <h1>목적지를<br />한 번에.</h1>
-        <p class="lead">내 차를 연동하고, 차에서 정한 목적지를 iPhone의 길안내로 바로 이어 줘요. 단속카메라 안내와 주행 기록까지 — 로그인 없이 설치하자마자 써요.</p>
+        <h1>주행을 편하게<br />목적지 설정도 더 편하게</h1>
+        <p class="lead">내 차를 연동하면 주행에 필요한 도구를 채워드립니다.<br />번거롭던 목적지 설정도 내가 쓰던 내비게이션으로 더 쉽게.</p>
         <div class="actions">
           <span class="btn btn-hero" role="link" aria-disabled="true">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.87.69 1.19-.02 1.94-1.08 2.66-2.15.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.54zM14.18 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z"/></svg>
             App Store 출시 예정
           </span>
-          <a class="btn btn-quiet" href="#features">기능 둘러보기</a>
         </div>
-        <p class="note">iPhone · iOS 26 이상 · 7일 무료 체험</p>
       </div>
       <div class="hero-visual">
-        <div class="phone"><img src="/assets/screens/drive.png" alt="PRND 주행 화면 — 속도 62 km/h, 이동 거리, 차량 출력" width="393" height="852" /></div>
+        <div class="phone"><img src="/assets/screens/drive.png" alt="PRND 주행 화면 — 속도, 이동 거리, 차량 출력, 남은 시간" width="393" height="852" /></div>
       </div>
     </div>
   </section>
@@ -65,39 +65,38 @@
   <section id="features">
     <div class="frame">
       <p class="eyebrow">Features</p>
-      <h2 class="section-title">운전에 필요한 것만 남겼어요</h2>
-      <p class="section-lead">앱 안에 지도를 다시 만들지 않았어요. 길안내는 늘 쓰던 지도 앱이, 차와의 연결과 기록은 PRND가 맡아요.</p>
+      <h2 class="section-title">주행을 편하게 하는 도구들</h2>
 
       <div class="features-grid">
         <article class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4.5 20.5 12 16l7.5 4.5z"/></svg></div>
           <h3>차의 목적지를 그대로<span class="tag">PRO</span></h3>
-          <p>차 화면에서 목적지를 정하면 iPhone이 알아채고 알림을 보내요. 한 번 누르면 길안내 앱이 같은 곳으로 안내를 시작해요.</p>
+          <p>차 화면에서 목적지를 정하면 iPhone이 알아채요. 한 번 누르면 쓰던 내비게이션이 같은 곳으로 안내를 시작해요.</p>
         </article>
         <article class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg></div>
-          <h3>검색 · 즐겨찾기 · 공유</h3>
-          <p>집·회사와 즐겨찾기, 최근 장소를 한 화면에. 지도 앱에서 공유한 장소도 PRND로 받아 바로 안내하거나 차로 보낼 수 있어요.</p>
+          <h3>내가 쓰던 내비게이션으로</h3>
+          <p>내비게이션 앱을 한 번 골라 두면 검색·집·회사·즐겨찾기 어디서든 바로 안내로 이어져요.</p>
+        </article>
+        <article class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg></div>
+          <h3>충전</h3>
+          <p>전 사업자 실시간 충전소 지도와 자주 쓰는 충전 앱을 한곳에. 대표 앱을 정하고 순서도 내 마음대로.</p>
         </article>
         <article class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 2.8 19.5h18.4z"/><path d="M12 10v4.2"/><path d="M12 17h.01"/></svg></div>
           <h3>단속카메라 안내<span class="tag">PRO</span></h3>
-          <p>목적지 없이 달릴 때도 단속카메라·구간단속·과속방지턱을 미리 알려 줘요. 길안내 앱이 안내하는 동안에는 알아서 쉬어요.</p>
+          <p>목적지 없이 달릴 때도 단속카메라와 구간단속을 미리 알려 줘요. 내비게이션이 안내하는 동안에는 알아서 쉬어요.</p>
         </article>
         <article class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16a8 8 0 1 1 15 0"/><path d="m12 12 3.5-3"/><circle cx="12" cy="12" r="1.2"/></svg></div>
-          <h3>주행 대시보드 · 계기판 모드<span class="tag">PRO</span></h3>
-          <p>기어, 속도, 차량 출력, 배터리, 재생 중인 곡까지 블루투스로 차에서 바로 읽어요. 가로로 눕히면 큼직한 계기판이 돼요.</p>
+          <h3>주행 대시보드 · 계기판<span class="tag">PRO</span></h3>
+          <p>기어, 속도, 출력, 배터리, 재생 중인 곡까지 차에서 바로 읽어요. 가로로 눕히면 큼직한 계기판이 돼요.</p>
         </article>
         <article class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h9a3 3 0 0 1 0 6H10a3 3 0 0 0 0 6h9"/><circle cx="5" cy="7" r="1.6"/><circle cx="19" cy="19" r="1.6"/></svg></div>
           <h3>여정 기록</h3>
-          <p>D에서 P까지 한 번의 주행을 기록해요. 이달의 거리와 평균·최고 속도, 달력, 가장 많이 간 동네를 한눈에. 기록은 이 iPhone 안에만 남아요.</p>
-        </article>
-        <article class="feature">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.8" width="11" height="18.4" rx="3"/><rect x="9" y="5.2" width="6" height="2" rx="1"/></svg></div>
-          <h3>Live Activity · 자동 시작<span class="tag">PRO</span></h3>
-          <p>잠금화면과 다이나믹 아일랜드에 남은 시간과 다음 카메라를 띄워요. 단축어 자동화로 차에 타면 앱을 열지 않아도 시작해요.</p>
+          <p>D에서 P까지 한 번의 주행을 기록해요. 이달의 거리와 속도, 달력, 자주 간 동네까지. 기록은 이 iPhone 안에만 남아요.</p>
         </article>
       </div>
     </div>
@@ -107,17 +106,18 @@
   <section id="screens">
     <div class="frame">
       <p class="eyebrow">Screens</p>
-      <h2 class="section-title">어두운 차 안에 맞춘 화면</h2>
-      <p class="section-lead">다크 전용, 큰 글씨, 적은 버튼. 주행 중에는 꼭 필요한 숫자만 보여요.</p>
+      <h2 class="section-title">주행 계기판부터 충전, 여정의 기록까지</h2>
+    </div>
 
-      <div class="showcase">
-        <div class="showcase-row">
-          <div class="phone"><img src="/assets/screens/drive.png" alt="주행 중 화면 — 속도 62 km/h, 이동 거리, 차량 출력, 남은 시간" width="393" height="852" loading="lazy" /></div>
-          <div class="phone"><img src="/assets/screens/destinations.png" alt="목적지 화면 — 검색, 집·회사, 즐겨찾기, 최근 장소" width="393" height="852" loading="lazy" /></div>
-          <div class="phone"><img src="/assets/screens/journey.png" alt="여정 화면 — 이달의 운전 요약과 달력" width="393" height="1577" loading="lazy" /></div>
-        </div>
-        <img class="showcase-wide" src="/assets/screens/instrument.png" alt="가로 계기판 모드 — 속도 62 km/h, 배터리 76%, 출력 18 kW" width="874" height="402" loading="lazy" />
-      </div>
+    <div class="slider" data-autoplay="3500">
+      <ul class="slider-track" aria-label="앱 화면 미리보기">
+        <li class="slide"><div class="phone"><img src="/assets/screens/drive.png" alt="주행 중 — 속도, 이동 거리, 차량 출력, 남은 시간" width="393" height="852" /></div><p>주행</p></li>
+        <li class="slide"><div class="phone"><img src="/assets/screens/destinations.png" alt="목적지 — 검색, 집·회사, 즐겨찾기, 최근" width="393" height="852" /></div><p>목적지</p></li>
+        <li class="slide"><div class="phone"><img src="/assets/screens/charging.png" alt="충전 — 충전소 찾기, 대표 충전앱, 충전 서비스" width="402" height="1030" loading="lazy" /></div><p>충전</p></li>
+        <li class="slide"><div class="phone"><img src="/assets/screens/journey.png" alt="여정 — 이달의 운전 요약과 달력" width="393" height="1532" loading="lazy" /></div><p>여정</p></li>
+        <li class="slide"><div class="phone"><img src="/assets/screens/navigation.png" alt="내비게이션 선택 — 연결할 내비게이션 앱 고르기" width="393" height="852" loading="lazy" /></div><p>내비게이션 선택</p></li>
+        <li class="slide"><div class="phone"><img src="/assets/screens/settings.png" alt="설정 — 차량 연결, 안내, 소리, 내비게이션 앱, 단축어, 구독" width="393" height="941" loading="lazy" /></div><p>설정</p></li>
+      </ul>
     </div>
   </section>
 
@@ -132,8 +132,8 @@
           <h3>FREE</h3>
           <p class="sub">차량 연결 없이도</p>
           <ul>
-            <li>장소 검색 · 즐겨찾기 · 최근 → 길안내 앱으로 바로 안내</li>
-            <li>지도 앱에서 공유한 장소 받기</li>
+            <li>장소 검색 · 즐겨찾기 · 최근 → 내비게이션 바로 안내</li>
+            <li>충전소 찾기 · 충전 앱 모아 보기</li>
             <li>여정 기록 · 월 요약 · 달력</li>
             <li>안내 음성 · 음량 설정</li>
           </ul>
@@ -143,14 +143,14 @@
           <p class="sub">월 구독 · 7일 무료 체험</p>
           <ul>
             <li>블루투스 차량 연결 — 기어·속도·출력·배터리 실시간</li>
-            <li>차에서 정한 목적지 → 길안내 자동 연결</li>
+            <li>차에서 정한 목적지 → 내비게이션 자동 연결</li>
             <li>자유주행 단속카메라 안내</li>
             <li>Live Activity · 다이나믹 아일랜드</li>
             <li>Siri · 단축어로 목적지 열기</li>
           </ul>
         </div>
       </div>
-      <p class="fine">구독은 App Store에서 결제되며 기간이 끝나기 24시간 전까지 해지하지 않으면 자동으로 갱신돼요. 해지는 iPhone 설정 › Apple 계정 › 구독에서 할 수 있어요. 가격은 출시 때 App Store에 표시돼요.</p>
+      <p class="fine">구독은 App Store에서 결제되며 기간이 끝나기 24시간 전까지 해지하지 않으면 자동으로 갱신돼요. 해지는 iPhone 설정 › Apple 계정 › 구독에서 할 수 있어요. 가격은 App Store에 표시돼요.</p>
     </div>
   </section>
 
@@ -158,22 +158,18 @@
   <section class="outro">
     <div class="frame">
       <img src="/assets/img/PRND-wordmark-transparent.svg" alt="PRND" width="200" height="65" />
-      <h2 class="section-title">목적지를 한 번에.</h2>
+      <h2 class="section-title">주행을 편하게,<br />목적지 설정도 더 편하게</h2>
       <span class="btn btn-hero" role="link" aria-disabled="true">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.02-1.5-2.62-1.7-3.19-1.72-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.7.71 2.87.69 1.19-.02 1.94-1.08 2.66-2.15.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.34-3.54zM14.18 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z"/></svg>
         App Store 출시 예정
       </span>
-      <p class="note">iPhone · iOS 26 이상 · 7일 무료 체험</p>
     </div>
   </section>
 </main>
 
 <footer class="site">
   <div class="frame">
-    <div>
-      <p>PRND는 특정 자동차 제조사와 제휴하지 않은 개인 개발 앱입니다.</p>
-      <p style="margin-top: 6px">문의 <a href="mailto:ngjang.dev@gmail.com">ngjang.dev@gmail.com</a> · © NUGABOX. All rights reserved.</p>
-    </div>
+    <p>문의 <a href="mailto:ngjang.dev@gmail.com">ngjang.dev@gmail.com</a> · © NUGABOX. All rights reserved.</p>
     <nav aria-label="법적 고지">
       <a href="/privacy/">개인정보처리방침</a>
       <a href="/terms/location/">위치기반서비스 이용약관</a>

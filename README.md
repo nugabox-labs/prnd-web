@@ -4,10 +4,10 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 
 | 경로 | URL |
 | --- | --- |
-| `index.html` | `/` — 소개, 기능, 화면, 요금, 출시 안내 |
+| `index.html` | `/` — 소개, 기능, 화면 슬라이더(`assets/js/slider.js`), 요금, 출시 안내 |
 | `privacy/index.html` | `/privacy/` — 개인정보처리방침 |
 | `terms/location/index.html` | `/terms/location/` — 위치기반서비스 이용약관 |
-| `assets/` | 공용 CSS, Michroma 폰트(OFL), 브랜드 이미지, 앱 화면 캡처 |
+| `assets/` | 공용 CSS·JS, Michroma 폰트(OFL), 브랜드 이미지, 앱 화면 캡처 |
 
 빌드 단계는 없다. 로컬 확인: `python3 -m http.server 8080` 후 http://localhost:8080
 
@@ -20,7 +20,9 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 | `assets/img/prnd-icon-rounded-512.png` | 모서리까지 둥근 투명 배경 PNG |
 | `assets/img/favicon.png`, `/favicon.ico`, `apple-touch-icon.png` | 브라우저·홈 화면 |
 
-사이트 문구에는 특정 제조사·지도 서비스 이름을 쓰지 않는다(추상적으로 "차", "길안내 앱").
+소개 페이지 문구에는 특정 제조사·지도 서비스 이름을 쓰지 않는다(추상적으로 "차", "내비게이션"). 개인정보처리방침·약관은 법적 고지라 위치를 받는 사업자(카카오모빌리티)를 이름으로 적는다.
+
+화면 캡처(`assets/screens/`)는 Figma `PRND-App` Screens에서 주행 중 `10:400`, 목적지 `10:539`, 충전 `96:1682`, 여정 `57:906`, 내비게이션 선택 `79:1410`, 설정 `11:521`을 그대로 내보낸 것이다. 슬라이더는 393:852 비율로 위에서부터 자른다.
 
 ## 출처
 - 문구·기능·등급: `prnd-app/docs/PRND_SPEC.md`
@@ -28,7 +30,7 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 - 브랜드(워드마크·앱 아이콘·Michroma·히어로): `prnd-app/assets/`
 - 법적 문서 틀: `todaytome/app/public/privacy.html`
 
-앱 기능이 바뀌면(특히 외부로 나가는 정보 — 카메라 안내 SDK 도입 등) 개인정보처리방침 4항과 버전·날짜를 함께 고친다.
+앱 기능이 바뀌면(특히 기기 밖으로 나가는 정보) 개인정보처리방침 1·4항과 날짜를 함께 고친다.
 
 ## 배포
 `main`에 푸시하면 `.github/workflows/deploy.yml`이 self-hosted 러너(`nugacloud`)에서
