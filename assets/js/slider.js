@@ -1,6 +1,6 @@
 // 화면 슬라이더 — 띠가 왼쪽으로 천천히 끊김 없이 흐른다.
 // 같은 슬라이드를 뒤에 두 벌 더 붙이고, 한 벌 너비만큼 흐르면 위치를 되돌려 끝없이 이어 보이게 한다.
-// 마우스를 올리면 속도를 부드럽게 줄여 멈추고, 내리면 다시 천천히 출발한다. 손·마우스로 끌어 넘길 수도 있다.
+// 마우스를 올려도 멈추지 않는다. 터치 화면에서는 손가락으로 끌어 넘길 수 있다.
 (() => {
   const slider = document.querySelector('.slider');
   if (!slider) return;
@@ -43,7 +43,6 @@
   addEventListener('resize', reset);
   addEventListener('load', reset, { once: true });
   let speed = 0;
-  let hovering = false;
   let visible = false;
   let drag = null;
 
@@ -57,7 +56,7 @@
     const dt = Math.min((now - last) / 1000, 0.1);
     last = now;
     if (!drag) {
-      const target = !started || hovering || reduceMotion || document.hidden ? 0 : SPEED;
+      const target = !started || reduceMotion || document.hidden ? 0 : SPEED;
       speed += (target - speed) * Math.min(1, EASE * dt);
       offset += speed * dt;
     }
@@ -75,15 +74,13 @@
     if (!started && entry.intersectionRatio >= 0.5) setTimeout(() => { started = true; }, 1200);
   }, { threshold: [0, 0.5] }).observe(slider);
 
-  slider.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hovering = true; });
-  slider.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hovering = false; });
 
-  // 끌어 넘기기: 놓은 뒤에는 0에서부터 다시 천천히 출발한다.
+  // 손가락으로 끌어 넘기기(마우스는 제외): 놓은 뒤에는 0에서부터 다시 천천히 출발한다.
   slider.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') return;
     drag = { x: e.clientX, offset, id: e.pointerId };
     speed = 0;
     slider.setPointerCapture(e.pointerId);
-    slider.classList.add('dragging');
   });
   slider.addEventListener('pointermove', (e) => {
     if (!drag || e.pointerId !== drag.id) return;
@@ -92,7 +89,6 @@
   const release = (e) => {
     if (!drag || e.pointerId !== drag.id) return;
     drag = null;
-    slider.classList.remove('dragging');
   };
   slider.addEventListener('pointerup', release);
   slider.addEventListener('pointercancel', release);

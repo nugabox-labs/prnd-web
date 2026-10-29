@@ -171,11 +171,10 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
 /* ── 화면 슬라이더: 천천히 흐르는 띠. 가운데 최대 3장(태블릿 2, 모바일 1), 양옆은 걸치고 끝은 흐리게 ── */
 .slider {
   container-type: inline-size; margin-top: 56px; padding: 24px 0 8px; overflow: hidden;
-  touch-action: pan-y; cursor: grab; -webkit-user-select: none; user-select: none;
+  touch-action: pan-y; -webkit-user-select: none; user-select: none;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
 }
-.slider.dragging { cursor: grabbing; }
 .slider-track {
   --per: 3; --gap: 28px;
   --visible: min(1000px, calc(100cqw - 200px));
@@ -185,13 +184,15 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
 .slide { flex: 0 0 calc((var(--visible) - (var(--per) - 1) * var(--gap)) / var(--per)); }
 .slide .phone {
   width: 100%;
+  /* 겹쳐 흐르는 폰마다 큰 그림자를 주면 띠 전체가 검게 뭉쳐 배경 도로를 가린다 — 옅게 */
+  box-shadow: 0 0 0 1px #2C2E33, 0 16px 36px rgba(0, 0, 0, 0.28);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .slide p { margin: 18px 0 0; text-align: center; font-size: 14px; color: var(--text-2); transition: color 0.6s; }
 @media (hover: hover) {
   .slide:hover .phone {
     transform: translateY(-10px) scale(1.025);
-    box-shadow: 0 0 0 1px #3A3C42, 0 56px 100px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 0 1px #3A3C42, 0 24px 48px rgba(0, 0, 0, 0.4);
   }
   .slide:hover p { color: var(--text); }
 }
