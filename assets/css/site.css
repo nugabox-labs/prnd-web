@@ -186,22 +186,14 @@ section { padding: 112px 0; border-top: 1px solid var(--divider); }
   width: 100%;
   /* 겹쳐 흐르는 폰마다 큰 그림자를 주면 띠 전체가 검게 뭉쳐 배경 도로를 가린다 — 옅게 */
   box-shadow: 0 0 0 1px #2C2E33, 0 16px 36px rgba(0, 0, 0, 0.28);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.slide p { margin: 18px 0 0; text-align: center; font-size: 14px; color: var(--text-2); transition: color 0.6s; }
-@media (hover: hover) {
-  .slide:hover .phone {
-    transform: translateY(-10px) scale(1.025);
-    box-shadow: 0 0 0 1px #3A3C42, 0 24px 48px rgba(0, 0, 0, 0.4);
-  }
-  .slide:hover p { color: var(--text); }
-}
-
+.slide p { margin: 18px 0 0; text-align: center; font-size: 14px; color: var(--text-2); }
 /* ── 마무리 CTA ── */
 .outro { text-align: center; padding: 128px 0 136px; }
 .outro .frame { display: flex; flex-direction: column; align-items: center; }
 .outro img { width: auto; height: 30px; margin-bottom: 32px; }
 .outro .section-title { margin-bottom: 32px; }
+.store-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .outro .note { margin: 18px 0 0; font-size: 13px; color: var(--text-3); }
 
 /* ── 요금 ── */
@@ -286,9 +278,10 @@ table.tbl tbody tr:last-child td { border-bottom: 0; }
 @media (max-width: 680px) {
   .frame { padding: 0 22px; }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.12em; }
+  /* 스토어 버튼 두 개는 같은 너비로 쌓는다 */
+  .hero .actions, .store-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .hero .actions .btn, .store-buttons .btn { justify-content: center; }
   .hero p.lead { font-size: 16px; }
-  footer.site .frame > p span { display: block; }
-  footer.site .frame > p .sep { display: none; }
   .header-bar { grid-template-columns: auto 1fr; padding: 16px 20px; gap: 12px; }
   .header-nav { justify-self: end; gap: 20px; }
   .header-nav a { font-size: 14px; }
