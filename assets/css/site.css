@@ -91,13 +91,13 @@ section[id] { scroll-margin-top: 84px; }
   height: 52px; padding: 0 22px; border-radius: 16px;
   font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap;
 }
-/* 앱의 Hero CTA: 검정 70% 면 + 위→아래 그라디언트 테두리(1.5pt) */
+/* 앱의 Hero CTA(Figma 9:300): 검정 70% 단색 면 + 1.5pt 테두리. 웹에서는 테두리를 옅게 죽인다 */
 .btn-hero {
   color: var(--text);
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) padding-box,
-    linear-gradient(180deg, var(--text), var(--text-3)) border-box;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1.5px solid rgba(242, 242, 240, 0.3);
+  border-radius: 18px;
+  font-weight: 700;
 }
 .btn-quiet { color: var(--text); background: var(--surface); }
 .btn-quiet:hover { background: var(--field); }
@@ -279,7 +279,7 @@ table.tbl tbody tr:last-child td { border-bottom: 0; }
   .frame { padding: 0 22px; }
   .hero .eyebrow { font-size: 10.5px; letter-spacing: 0.12em; }
   /* 스토어 버튼 두 개는 같은 너비로 쌓는다 */
-  .hero .actions, .store-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .hero .actions, .store-buttons { flex-direction: column; align-items: stretch; width: 100%; max-width: 260px; margin-left: auto; margin-right: auto; }
   .hero .actions .btn, .store-buttons .btn { justify-content: center; }
   .hero p.lead { font-size: 16px; }
   .header-bar { grid-template-columns: auto 1fr; padding: 16px 20px; gap: 12px; }
