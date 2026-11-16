@@ -258,6 +258,11 @@ footer.site a { color: var(--text-2); text-decoration: none; }
 footer.site a:hover { color: var(--text); }
 footer.site p { margin: 0; }
 footer.site .footer-info { display: flex; flex-direction: column; gap: 4px; }
+/* 주소·메일: 법정 표시라 두되 눈에 덜 띄게 더 어둡게 */
+footer.site .footer-fine { color: #3E4146; }
+/* 좁은 화면에서 번호·주소가 중간에 끊기지 않게, 항목 사이(·)에서만 줄을 바꾼다 */
+footer.site .footer-info { min-width: 0; max-width: 100%; }
+footer.site .footer-info span { white-space: nowrap; }
 
 /* ── 법적 문서(개인정보처리방침·약관) ── */
 .doc { padding: 72px 0 112px; }
