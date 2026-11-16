@@ -4,7 +4,7 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 
 | 경로 | URL |
 | --- | --- |
-| `index.html` | `/` — 소개, 기능 9칸(`prnd-app/docs/appstore.md` 설명의 ■ 항목과 같은 순서·뜻), 화면 슬라이더(`assets/js/slider.js`), 요금(월 1,000원 · 연 9,900원 · 평생 49,900원, PRO 목록은 앱 구독 화면 "PRO에 포함"과 맞춤), 출시 안내(App Store 출시 임박 · Google Play 출시 준비 중) |
+| `index.html` | `/` — 소개, 기능 9칸(`prnd-app/docs/appstore.md` 설명의 ■ 항목과 같은 순서·뜻), 화면 슬라이더(`assets/js/slider.js`), 요금(월 1,000원 · 연 9,900원 · 평생 49,900원, PRO 목록은 앱 구독 화면 "PRO에 포함"과 맞춤), 스토어 버튼(App Store는 앱 페이지 링크 · Google Play 출시 준비 중), `apple-itunes-app` 스마트 배너(id6826980603) |
 | `privacy/index.html` | `/privacy/` — 개인정보처리방침 |
 | `terms/index.html` | `/terms/` — 서비스 이용약관 |
 | `terms/location/index.html` | `/terms/location/` — 위치기반서비스 이용약관 |
@@ -13,7 +13,7 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 빌드 단계는 없다. 로컬 확인: `python3 -m http.server 8080` 후 http://localhost:8080
 
 ## 헤더 · 워드마크
-- 헤더는 link.nugabox.com(`linkbox/components/site/SiteHeader.tsx`)과 같은 방식: 맨 위에서는 전체 너비·배경 없음, 스크롤하면 가운데 알약(반투명·블러)으로 줄어든다. `assets/js/site.js`가 맨 위 감시자로 `.is-shrunk`만 붙인다. 메뉴는 한글(기능 · 화면 · 요금), 오른쪽은 스토어 알약 둘(App Store 출시 임박은 크림, Google Play 출시 준비 중은 차분하게). 모바일(680px 이하)은 오른쪽 알약을 숨긴다.
+- 헤더는 link.nugabox.com(`linkbox/components/site/SiteHeader.tsx`)과 같은 방식: 맨 위에서는 전체 너비·배경 없음, 스크롤하면 가운데 알약(반투명·블러)으로 줄어든다. `assets/js/site.js`가 맨 위 감시자로 `.is-shrunk`만 붙인다. 메뉴는 한글(기능 · 화면 · 요금), 오른쪽은 스토어 알약 둘(App Store는 크림 링크 — https://apps.apple.com/kr/app/prnd-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/id6826980603, Google Play 출시 준비 중은 차분하게). 모바일(680px 이하)은 오른쪽 알약을 숨긴다.
 - 헤더·마무리 로고는 `assets/img/PRND-wordmark-wide.svg` — 앱 워드마크 글리프를 글자 사이 +46(글자 높이 90 기준) 넓히고 여백 없이 잘라 같은 높이에서 더 크게 보인다. 원본은 `PRND-wordmark-transparent.svg`.
 - CSS·JS 링크에는 `?v=` 버전을 붙인다. 고치면 네 페이지의 버전을 함께 올린다.
 
