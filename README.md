@@ -4,7 +4,7 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 
 | 경로 | URL |
 | --- | --- |
-| `index.html` | `/` — 소개, 기능 9칸(`prnd-app/docs/appstore.md` 설명의 ■ 항목과 같은 순서·뜻), 화면 슬라이더(`assets/js/slider.js`), 요금(월 1,000원 · 연 9,900원 · 평생 49,900원, PRO 목록은 앱 구독 화면 "PRO에 포함"과 맞춤), 스토어 버튼(App Store는 앱 페이지 링크 · Google Play 출시 준비 중), `apple-itunes-app` 스마트 배너(id6826980603) |
+| `index.html` | `/` — 소개, 기능 9칸(`prnd-app/docs/appstore.md` 설명의 ■ 항목과 같은 순서·뜻), 화면 슬라이더(`assets/js/slider.js`), 후원(`#support` — 모든 기능 무료, 후원 금액은 앱 후원 화면·`prnd-app` SPEC §7과 맞춤: 작은 응원 1,000원 · 커피 한 잔 3,000원 · 급속 충전 한 번 10,000원, 2026-11-17 PRO 구독을 없앰), 스토어 버튼(App Store는 앱 페이지 링크 · Google Play 출시 준비 중), `apple-itunes-app` 스마트 배너(id6826980603) |
 | `privacy/index.html` | `/privacy/` — 개인정보처리방침 |
 | `terms/index.html` | `/terms/` — 서비스 이용약관 |
 | `terms/location/index.html` | `/terms/location/` — 위치기반서비스 이용약관 |
@@ -13,12 +13,12 @@ PRND 앱의 소개 · 개인정보처리방침 · 위치기반서비스 이용�
 빌드 단계는 없다. 로컬 확인: `python3 -m http.server 8080` 후 http://localhost:8080
 
 ## 헤더 · 워드마크
-- 헤더는 link.nugabox.com(`linkbox/components/site/SiteHeader.tsx`)과 같은 방식: 맨 위에서는 전체 너비·배경 없음, 스크롤하면 가운데 알약(반투명·블러)으로 줄어든다. `assets/js/site.js`가 맨 위 감시자로 `.is-shrunk`만 붙인다. 메뉴는 한글(기능 · 화면 · 요금), 오른쪽은 스토어 알약 둘(App Store는 크림 링크 — https://apps.apple.com/kr/app/prnd-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/id6826980603, Google Play 출시 준비 중은 차분하게). 모바일(680px 이하)은 오른쪽 알약을 숨긴다.
+- 헤더는 link.nugabox.com(`linkbox/components/site/SiteHeader.tsx`)과 같은 방식: 맨 위에서는 전체 너비·배경 없음, 스크롤하면 가운데 알약(반투명·블러)으로 줄어든다. `assets/js/site.js`가 맨 위 감시자로 `.is-shrunk`만 붙인다. 메뉴는 한글(기능 · 화면 · 후원), 오른쪽은 스토어 알약 둘(App Store는 크림 링크 — https://apps.apple.com/kr/app/prnd-%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C/id6826980603, Google Play 출시 준비 중은 차분하게). 모바일(680px 이하)은 오른쪽 알약을 숨긴다.
 - 헤더·마무리 로고는 `assets/img/PRND-wordmark-wide.svg` — 앱 워드마크 글리프를 글자 사이 +46(글자 높이 90 기준) 넓히고 여백 없이 잘라 같은 높이에서 더 크게 보인다. 원본은 `PRND-wordmark-transparent.svg`.
 - CSS·JS 링크에는 `?v=` 버전을 붙인다. 고치면 네 페이지의 버전을 함께 올린다.
 
-## 푸터 · 사업자 정보
-네 페이지 푸터 공통: "© NUGABOX…" / "대표 · 사업자등록번호 · 통신판매업 신고번호(동구청)" / 주소 · 메일 — 저작권 아래 두 줄은 모두 `.footer-fine`(더 어둡게). 전자상거래법 제13조제1항(광고 시 신원 표시) 때문에 넣었다. 약관·방침 본문의 "제공자 정보"에는 사업자등록번호를 다시 쓰지 않는다. 전화번호는 아직 없다 — 생기면 둘째 줄에 넣고 앱 `BusinessInfo`(`prnd-app` `InfoScreens.swift`)도 같이 고친다. 근거·출처: `prnd-app/docs/legal-2026-11-16.md`.
+## 푸터
+네 페이지 푸터 공통: "© NUGABOX. All rights reserved." 한 줄과 법적 고지 링크만 둔다(2026-11-17 — 유료 판매를 접고 통신판매업을 폐업해 대표·사업자등록번호·통신판매업 신고번호·주소 줄을 뺐다). 약관·방침 본문의 "제공자 정보"(제공자·책임자·이메일)는 연락처로 남긴다.
 
 ## 아이콘
 `assets/img/favicon.svg`가 원본이다 — 워드마크(Michroma)의 P·R 글리프를 같은 색 외곽선으로 굵게, 검정 둥근 사각형 위에.
